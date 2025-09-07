@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "mcp-hub": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@himorishige/hatago-mcp-hub",
+        "serve",
+        "--stdio",
+        "--config",
+        "/app/hatago.config.json"
+      ],
+      "transportType": "stdio"
+    }
+  }
+}

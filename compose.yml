@@ -1,0 +1,15 @@
+services:
+  mcp-hub:
+    build: .
+    container_name: mcp-hub
+    working_dir: /app
+    command: >-
+      mcp-proxy --host 0.0.0.0 --port 3535 --named-server-config /app/mcp-proxy.config.json
+    ports:
+      - "3535:3535"
+      - "3500:3500"
+    volumes:
+      - ~/.config/google-calendar-mcp/tokens.json:/root/.config/google-calendar-mcp/tokens.json
+      - ./mcp-proxy.config.json:/app/mcp-proxy.config.json:ro
+      - ./hatago.config.json:/app/hatago.config.json:ro
+      - ./gcp-oauth.keys.json:/app/gcp-oauth.keys.json:ro
